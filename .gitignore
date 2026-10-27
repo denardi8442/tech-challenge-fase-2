@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# VS Code e sistema operacional
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Dados e modelos gerados
+data/raw/*
+!data/raw/*.dvc
+!data/raw/.gitignore
+data/processed/
+models/*.pkl
+models/*.joblib
+
+# MLflow local
+mlruns/
+mlartifacts/
+mlflow.db
+
+# DVC
+.dvc/cache/

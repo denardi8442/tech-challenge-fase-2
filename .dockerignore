@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Configurações locais
+.env
+.env.*
+!.env.example
+.vscode/
+
+# Dados e modelos locais
+data/raw/
+data/processed/
+models/*.pkl
+models/*.joblib
+
+# MLflow
+mlruns/
+mlartifacts/
+mlflow.db
+
+# Cache DVC
+.dvc/cache/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
