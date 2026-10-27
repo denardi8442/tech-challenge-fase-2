@@ -20,9 +20,8 @@ env/
 Thumbs.db
 
 # Dados e modelos gerados
-data/raw/*
-!data/raw/*.dvc
-!data/raw/.gitignore
+# Dados brutos: ignorar CSV, permitir metadados DVC
+data/raw/*.csv
 data/processed/
 models/*.pkl
 models/*.joblib

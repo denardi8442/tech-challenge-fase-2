@@ -1,0 +1,4 @@
+[core]
+    remote = armazenamento
+['remote "armazenamento"']
+    url = C:\Projetos\dvc-storage
