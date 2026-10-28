@@ -1,0 +1,16 @@
+
+services:
+  treinamento:
+    build: .
+    image: tech-challenge-fase-2:latest
+    container_name: tech-challenge-treinamento
+
+    environment:
+      MLFLOW_TRACKING_URI: file:///app/mlruns
+      MLFLOW_ALLOW_FILE_STORE: "true"
+
+    volumes:
+      - ./data:/app/data
+      - ./mlruns:/app/mlruns
+
+    command: python main.py
