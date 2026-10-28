@@ -1,4 +1,2 @@
 [core]
-    remote = armazenamento
-['remote "armazenamento"']
-
+    autostage = false
