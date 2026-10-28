@@ -81,3 +81,26 @@ def preparar_dados(dados: pd.DataFrame):
     ])
 
     return X_treino, X_teste, y_treino, y_teste, preprocessador
+
+
+def executar_preprocessamento() -> None:
+    """Gera o dataset preparado para o pipeline DVC."""
+
+    dados = carregar_dados("online_shoppers_intention.csv")
+
+    pasta_saida = Path("data/processed")
+    pasta_saida.mkdir(parents=True, exist_ok=True)
+
+    caminho_saida = pasta_saida / "online_shoppers_processed.csv"
+
+    # Mantém os dados originais e padroniza a variável-alvo.
+    dados["Revenue"] = dados["Revenue"].astype(int)
+
+    dados.to_csv(caminho_saida, index=False)
+
+    print(f"Dataset preparado: {caminho_saida}")
+    print(f"Registros: {len(dados)}")
+
+
+if __name__ == "__main__":
+    executar_preprocessamento()

@@ -12,12 +12,15 @@ from sklearn.metrics import (
     roc_auc_score,
 )
 
-from src.data.preprocessing import carregar_dados, preparar_dados
-from src.config import RAW_DATA_DIR
+import pandas as pd
+
+from src.data.preprocessing import preparar_dados
 
 
 def treinar_modelo():
-    dados = carregar_dados("online_shoppers_intention.csv")
+    dados = pd.read_csv(
+        "data/processed/online_shoppers_processed.csv"
+    )
 
     X_treino, X_teste, y_treino, y_teste, preprocessador = (
         preparar_dados(dados)

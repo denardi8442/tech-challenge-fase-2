@@ -1,0 +1,45 @@
+schema: '2.0'
+stages:
+  preprocessamento:
+    cmd: poetry run python -m src.data.preprocessing
+    deps:
+    - path: data/raw/online_shoppers_intention.csv
+      hash: md5
+      md5: cc6ec1db03b4f10f8de52c56ff48b085
+      size: 1072063
+    - path: src/config.py
+      hash: md5
+      md5: 6157b3c4b16831617b173ea9712664a5
+      size: 559
+    - path: src/data/preprocessing.py
+      hash: md5
+      md5: cca2a0ca8b90a725cbd4bc14680dfad5
+      size: 2977
+    outs:
+    - path: data/processed/online_shoppers_processed.csv
+      hash: md5
+      md5: ab2e7085225e07031a07e9296e7cfcf5
+      size: 1121868
+  treinamento:
+    cmd: poetry run python main.py
+    deps:
+    - path: data/processed/online_shoppers_processed.csv
+      hash: md5
+      md5: ab2e7085225e07031a07e9296e7cfcf5
+      size: 1121868
+    - path: main.py
+      hash: md5
+      md5: cb586ebefb1e8948c061aedeaa8a8093
+      size: 188
+    - path: src/config.py
+      hash: md5
+      md5: 6157b3c4b16831617b173ea9712664a5
+      size: 559
+    - path: src/data/preprocessing.py
+      hash: md5
+      md5: cca2a0ca8b90a725cbd4bc14680dfad5
+      size: 2977
+    - path: src/training/train.py
+      hash: md5
+      md5: 23f82049ee13292654ee575ddd649737
+      size: 1945

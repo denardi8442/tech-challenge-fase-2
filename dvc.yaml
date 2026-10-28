@@ -1,0 +1,19 @@
+
+stages:
+  preprocessamento:
+    cmd: poetry run python -m src.data.preprocessing
+    deps:
+      - src/data/preprocessing.py
+      - src/config.py
+      - data/raw/online_shoppers_intention.csv
+    outs:
+      - data/processed/online_shoppers_processed.csv
+
+  treinamento:
+    cmd: poetry run python main.py
+    deps:
+      - main.py
+      - src/training/train.py
+      - src/data/preprocessing.py
+      - src/config.py
+      - data/processed/online_shoppers_processed.csv
